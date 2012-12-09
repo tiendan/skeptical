@@ -1,0 +1,33 @@
+<h1>Listing human_names</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Origin language</th>
+    <th>Is natural</th>
+    <th>Description</th>
+    <th>Gender</th>
+    <th>Is forbidden</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @human_names.each do |human_name| %>
+  <tr>
+    <td><%= human_name.name %></td>
+    <td><%= human_name.origin_language_id %></td>
+    <td><%= human_name.is_natural %></td>
+    <td><%= human_name.description %></td>
+    <td><%= human_name.gender %></td>
+    <td><%= human_name.is_forbidden %></td>
+    <td><%= link_to 'Show', human_name %></td>
+    <td><%= link_to 'Edit', edit_human_name_path(human_name) %></td>
+    <td><%= link_to 'Destroy', human_name, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Human name', new_human_name_path %>

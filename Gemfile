@@ -9,6 +9,10 @@ group :development do
   gem 'sqlite3', '1.3.6'
 end
 
+group :production do
+  gem 'pg', '0.12.2'
+end
+
 gem 'json', '1.7.5'
 
 # Gems used only for assets and not required

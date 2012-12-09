@@ -1,4 +1,10 @@
 Skeptical::Application.routes.draw do
+  resources :human_names
+
+
+  resources :origin_languages
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

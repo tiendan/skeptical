@@ -1,0 +1,23 @@
+<h1>Listing origin_languages</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @origin_languages.each do |origin_language| %>
+  <tr>
+    <td><%= origin_language.name %></td>
+    <td><%= link_to 'Show', origin_language %></td>
+    <td><%= link_to 'Edit', edit_origin_language_path(origin_language) %></td>
+    <td><%= link_to 'Destroy', origin_language, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Origin language', new_origin_language_path %>

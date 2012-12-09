@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @human_name.name %>
+</p>
+
+<p>
+  <b>Origin language:</b>
+  <%= @human_name.origin_language_id %>
+</p>
+
+<p>
+  <b>Is natural:</b>
+  <%= @human_name.is_natural %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @human_name.description %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @human_name.gender %>
+</p>
+
+<p>
+  <b>Is forbidden:</b>
+  <%= @human_name.is_forbidden %>
+</p>
+
+
+<%= link_to 'Edit', edit_human_name_path(@human_name) %> |
+<%= link_to 'Back', human_names_path %>
