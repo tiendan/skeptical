@@ -4,7 +4,7 @@
 		<div class="row">
 		<% end %>
 			<div class="col_4 result-panel shadow <%= "type" + ((human_name.id % 7) + 1).to_s %>">
-			<%= link_to image_tag('/images/edit.png'), edit_human_name_path(human_name), :class => 'edit-button', :alt => "Duzenle" %>
+			<%= link_to image_tag('/images/edit.png'), edit_human_name_path(human_name), :class => 'edit-button' %>
 	    <p class="name"><%= link_to human_name.name, human_name %></p>
 	    <!--<p><%= human_name.origin_language.name %></p>-->
 	    <!--<p><%= get_turkish_true_false human_name.is_natural %></p>-->
@@ -13,7 +13,7 @@
 	    <!--<p><%= get_turkish_true_false human_name.is_forbidden %></p>-->
 	    <!--<p><%= link_to 'Destroy', human_name, :method => :delete, :data => { :confirm => 'Bu adı silmek istediğinizden emin misiniz?' }  %></p>-->
 			</div>
-		<% if index % 4 == 3 %>
+		<% if index % 4 == 3 or index == (@human_names.length - 1) %>
 		</div>
 		<% end %>
 	<% end %>

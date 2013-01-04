@@ -21,6 +21,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
 -->
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "/css/style.css", "/css/jquery-ui-1.8.16.custom", "/css/jquery.ui.1.8.16.ie", "/css/jquery.multiselect" %>
   <%= javascript_include_tag "application" %>
 	<%= yield :head %>
   <%= csrf_meta_tags %>
@@ -34,7 +35,7 @@
 
 	<header id="navtop">
 		<a href="/" class="logo fleft">
-			<img src="/assets/logo.png" alt="Designa Studio">
+			<img src="/images/logo.png" alt="Designa Studio">
 		</a>
 		
 		<nav class="fright">
@@ -61,121 +62,42 @@
 			<%= yield %>
 		</div>
 		
-		 </section>
-	<!--
-	<section class="services grid-wrap">
-		<header class="grid col-full">
-			<hr>
-			<p class="fleft">Services</p>
-			<a href="services.html" class="arrow fright">see more services</a>
-		</header>
-		
-		<article class="grid col-one-third mq3-col-full">
-			<aside>01</aside>
-			<h5>Web design</h5>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim.</p>
-		</article>
-		
-		<article class="grid col-one-third mq3-col-full">
-			<aside>02</aside>
-			<h5>Web development</h5>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim.</p>
-		</article>
-		
-		<article class="grid col-one-third mq3-col-full">
-			<aside>03</aside>
-			<h5>Graphic design</h5>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim.</p>
-		</article>
 	</section>
-
-<section class="works grid-wrap">
-	<header class="grid col-full">
-			<hr>
-			<p class="fleft">Works</p>
-			<a href="works.html" class="arrow fright">see more works</a>
-		</header>
 	
-			<figure class="grid col-one-quarter mq2-col-one-half">
-				<a href="work1.html">
-				<img src="/assets/img.jpg" alt="">
-				<span class="zoom"></span>
-				</a>
-				<figcaption>
-					<a href="work1.html" class="arrow">Project page!</a>
-					<p>Lorem ipsum dolor set amet</p>
-				</figcaption>
-			</figure>
-
-			<figure class="grid col-one-quarter mq2-col-one-half">
-				<a href="#">
-				<img src="/assets/img.jpg" alt="">
-				<span class="zoom"></span>
-				</a>
-				<figcaption>
-					<a href="#" class="arrow">Project x</a>
-					<p>Lorem ipsum dolor set amet</p>
-				</figcaption>
-			</figure>
-		
-			<figure class="grid col-one-quarter mq2-col-one-half">
-				<a href="#">
-				<img src="/assets/img.jpg" alt="">
-				<span class="zoom"></span>
-				</a>
-				<figcaption>
-					<a href="#" class="arrow">Project x</a>
-					<p>Lorem ipsum dolor set amet</p>
-				</figcaption>
-			</figure>
-		
-			<figure class="grid col-one-quarter mq2-col-one-half">
-				<a href="#">
-				<img src="/assets/img.jpg" alt="">
-				<span class="zoom"></span>
-				</a>
-				<figcaption>
-					<a href="#" class="arrow">Project x</a>
-					<p>Lorem ipsum dolor set amet</p>
-				</figcaption>
-			</figure>
-	</section>
-	</div> <!--main-->
-
-<div class="divide-top">
-	<footer class="grid-wrap">
-		<ul class="grid col-one-third social">
-			<li><a href="#">RSS</a></li>
-			<li><a href="#">Facebook</a></li>
-			<li><a href="#">Twitter</a></li>
-			<li><a href="#">Google+</a></li>
-			<li><a href="#">Flickr</a></li>
-		</ul>
-	
-		<div class="up grid col-one-third ">
-			<a href="#navtop" title="Go back up">&uarr;</a>
-		</div>
-		
-		<nav class="grid col-one-third ">
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="works.html">Works</a></li>
-				<li><a href="services.html">Services</a></li>
-				<li><a href="blog.html">Blog</a></li>
-				<li><a href="contact.html">Contact</a></li>
+	<div class="divide-top">
+		<footer class="grid-wrap">
+			<ul class="grid col-one-third social">
+				<li><a href="#">RSS</a></li>
+				<li><a href="#">Facebook</a></li>
+				<li><a href="#">Twitter</a></li>
+				<li><a href="#">Google+</a></li>
+				<li><a href="#">Flickr</a></li>
 			</ul>
-		</nav>
-	</footer>
+	
+			<div class="up grid col-one-third ">
+				<a href="#navtop" title="Go back up">&uarr;</a>
+			</div>
+		
+			<nav class="grid col-one-third ">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="works.html">Works</a></li>
+					<li><a href="services.html">Services</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+		</footer>
+	</div>
 </div>
-
 </div>
 
 <!--[if (gte IE 6)&(lte IE 8)]>
-<script src="assets/selectivizr.js"></script>
+<script src="/javascripts/selectivizr.js"></script>
 <![endif]-->
 
-<script src="/assets/jquery.flexslider-min.js"></script>
+<script src="/javascripts/jquery.flexslider-min.js"></script>
 <script src="/javascripts/scripts.js"></script>
 <!--
 Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. 

@@ -1,6 +1,16 @@
 <% content_for :head do %>
+  	<%= stylesheet_link_tag    "/css/34gs.css" %>
+  	<%= stylesheet_link_tag    "/css/34gs-queries.css" %>
+  	<%= stylesheet_link_tag    "/css/34gs-custom.css" %>
+
     <%= javascript_include_tag "/javascripts/human_names_search.js" %>
-    <%= javascript_include_tag "/javascripts/jquery.paginate.js" %>
+    <%= javascript_include_tag "/javascripts/jquery-ui.min.js" %>
+    <%= javascript_include_tag "/javascripts/jquery.ba-url.js" %>
+    <%= javascript_include_tag "/javascripts/jquery.multiselect.js" %>
+    <%= javascript_include_tag "/javascripts/jquery.validate.min.js" %>
+
+    <%= javascript_include_tag "/javascripts/human_names_search.js" %>
+
 <% end %> 
 
 <aside id="search-box" class="grid col-one-quarter mq2-col-full">
