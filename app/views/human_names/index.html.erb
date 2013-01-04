@@ -1,33 +1,62 @@
-<h1>Listing human_names</h1>
+<% content_for :head do %>
+    <%= javascript_include_tag "/javascripts/human_names_search.js" %>
+    <%= javascript_include_tag "/javascripts/jquery.paginate.js" %>
+<% end %> 
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Origin language</th>
-    <th>Is natural</th>
-    <th>Description</th>
-    <th>Gender</th>
-    <th>Is forbidden</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<aside id="search-box" class="grid col-one-quarter mq2-col-full">
 
-<% @human_names.each do |human_name| %>
-  <tr>
-    <td><%= human_name.name %></td>
-    <td><%= human_name.origin_language_id %></td>
-    <td><%= human_name.is_natural %></td>
-    <td><%= human_name.description %></td>
-    <td><%= human_name.gender %></td>
-    <td><%= human_name.is_forbidden %></td>
-    <td><%= link_to 'Show', human_name %></td>
-    <td><%= link_to 'Edit', edit_human_name_path(human_name) %></td>
-    <td><%= link_to 'Destroy', human_name, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
-  </tr>
+
+<%= form_tag(human_names_path, :method => "get", :id => "search_form", :remote => true) do %>
+<ul class="toggle-view">
+							<li>
+								<h5 class="toggle-title tactive">CİNSİYET</h5>
+								<div class="toggle grid-wrap" style="display: block;">                    
+									<div class="grid col-full mq3-col-full">
+											<%= select_tag :cinsiyet_coklu, options_for_select(search_options_genders_for_select, params[:cinsiyet] ? params[:cinsiyet].split(",") : nil), :onchange => "submit_search();", :multiple => "multiple" %>
+										<%= hidden_field_tag(:cinsiyet, params[:cinsiyet]) %>
+									</div>
+								</div>       
+							</li>
+							<li>
+								<h5 class="toggle-title tactive">BAŞLANGIÇ HARFİ</h5>
+								<div class="toggle grid-wrap">                    
+									<div class="grid col-full mq3-col-full">
+											<%= select_tag :ilk_coklu, options_for_select(@letters, params[:ilk] ? params[:ilk].split(",") : nil), :onchange => "submit_search();", :multiple => "multiple" %>
+										<%= hidden_field_tag(:ilk, params[:ilk]) %>
+									</div>
+								</div>       
+							</li>
+							<li>
+								<h5 class="toggle-title tactive">SÖZCÜK KÖKENİ</h5>
+								<div class="toggle grid-wrap">                    
+									<div class="grid col-full mq3-col-full">
+	<%= select_tag :koken_coklu, options_from_collection_for_select(OriginLanguage.all, :id, :name, params[:koken] ? params[:koken].split(",") : nil), :onchange => "submit_search();", :multiple => "multiple" %>
+										<%= hidden_field_tag(:koken, params[:koken]) %>
+									</div>
+								</div>       
+							</li>
+							<li>
+								<h5 class="toggle-title tactive">DİĞER</h5>
+								<div class="toggle grid-wrap">                    
+									<div class="grid col-full mq3-col-full">
+	<%= check_box_tag :dogal, "1", params[:dogal] == "1", :onclick => "submit_search();" %>
+	<%= label_tag(:dogal, "Sadece doğayla ilgili adlar") %>
+									</div>             
+									<div class="grid col-full mq3-col-full">
+	<%= check_box_tag :turkce, "0", params[:turkce] == "0", :onclick => "submit_search();" %>
+	<%= label_tag(:turkce, "'çğıöşü' harfleri içermeyen adlar") %>
+									</div>
+									<div class="grid col-full mq3-col-full">
+										<%= hidden_field_tag(:sayfa, params[:sayfa]) %>
+									</div>
+								</div>       
+							</li>
+						</ul>
 <% end %>
-</table>
+	</aside>
+		
+<div id="search-results" class="grid col-three-quarters mq2-col-full">
+	<%= render 'results' %>
+</div>
 
-<br />
-
-<%= link_to 'New Human name', new_human_name_path %>
+<%= link_to 'Yeni Ad', new_human_name_path %>

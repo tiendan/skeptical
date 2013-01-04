@@ -1,11 +1,24 @@
 class HumanNamesController < ApplicationController
+	def get_turkish_alphabet
+		# Create Turkish alphabet
+		letters = ('A'..'Z').to_a
+		letters.delete_if{|x| ['Q','W','X'].to_a.include?(x)}
+		letters.insert(3, 'Ç')
+		letters.insert(10, 'İ')
+		letters.insert(17, 'Ö')
+		letters.insert(21, 'Ş')
+		letters.insert(24, 'Ü')
+	end
+	
   # GET /human_names
   # GET /human_names.json
   def index
-    @human_names = HumanName.all
+    @human_names = HumanName.search(params)
+		@letters = get_turkish_alphabet()
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.json { render :json => @human_names }
     end
   end

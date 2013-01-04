@@ -1,0 +1,24 @@
+<div class="rowcontainer" id="results">
+	<% @human_names.each.with_index do |human_name, index| %>
+		<% if index % 4 == 0 %>
+		<div class="row">
+		<% end %>
+			<div class="col_4 result-panel shadow <%= "type" + ((human_name.id % 7) + 1).to_s %>">
+			<%= link_to image_tag('/images/edit.png'), edit_human_name_path(human_name), :class => 'edit-button', :alt => "Duzenle" %>
+	    <p class="name"><%= link_to human_name.name, human_name %></p>
+	    <!--<p><%= human_name.origin_language.name %></p>-->
+	    <!--<p><%= get_turkish_true_false human_name.is_natural %></p>-->
+	    <p class="description"><%= human_name.description.gsub("\n", "<br/>").html_safe %></p>
+	    <!--<p><%= gender_name human_name.gender %></p>-->
+	    <!--<p><%= get_turkish_true_false human_name.is_forbidden %></p>-->
+	    <!--<p><%= link_to 'Destroy', human_name, :method => :delete, :data => { :confirm => 'Bu adı silmek istediğinizden emin misiniz?' }  %></p>-->
+			</div>
+		<% if index % 4 == 3 %>
+		</div>
+		<% end %>
+	<% end %>
+</div>
+<div id="pagination" class="apple_pagination">
+	<%= will_paginate @human_names, :previous_label => "←", :next_label => "→" %>
+</div>
+<%= javascript_tag "$(function () { replace_pagination_links() });" %>

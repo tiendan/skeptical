@@ -7,6 +7,7 @@ gem 'rails', '3.2.9'
 
 group :development do
   gem 'sqlite3', '1.3.6'
+  gem 'rspec-rails', '2.12.0'
 end
 
 group :production do
@@ -14,6 +15,7 @@ group :production do
 end
 
 gem 'json', '1.7.5'
+gem 'will_paginate', '3.0.3'
 
 # Gems used only for assets and not required
 # in production environments by default.

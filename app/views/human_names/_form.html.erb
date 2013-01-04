@@ -12,30 +12,30 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label "Ad" %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :origin_language_id %><br />
-    <%= f.number_field :origin_language_id %>
+    <%= f.label "Köken" %><br />
+	<%= f.collection_select :origin_language_id, OriginLanguage.all, :id, :name %>
   </div>
   <div class="field">
-    <%= f.label :is_natural %><br />
+    <%= f.label "Doğayla ilgili" %><br />
     <%= f.check_box :is_natural %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label "Anlamlar" %><br />
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
+    <%= f.label "Cinsiyet" %><br />
+    <%= f.select :gender, options_genders_for_select %>
   </div>
   <div class="field">
-    <%= f.label :is_forbidden %><br />
+    <%= f.label "Yasaklı" %><br />
     <%= f.check_box :is_forbidden %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Kaydet" %>
   </div>
 <% end %>
